@@ -1,5 +1,0 @@
-package wigal
-
-func main() {
-
-}

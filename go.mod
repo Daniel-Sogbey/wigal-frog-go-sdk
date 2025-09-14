@@ -1,3 +1,3 @@
 module github.com/Daniel-Sogbey/wigal-frog-go-sdk
 
-go 1.25.1
+go 1.24.0

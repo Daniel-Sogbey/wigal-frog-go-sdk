@@ -1,9 +1,9 @@
 package main
 
-type Client struct {
+type WigalClient struct {
 	config *Config
 }
 
-func NewClient(c *Config) *Client {
-	return &Client{config: c}
+func NewWigalClient(c *Config) *WigalClient {
+	return &WigalClient{config: c}
 }

@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func (c *Client) SentMessagesHistory(ctx context.Context, service Service, serviceType ServiceType,
+func (c *WigalClient) SentMessagesHistory(ctx context.Context, service Service, serviceType ServiceType,
 	dateFrom, dateTo, senderId string,
 	status Status, msgId string) (*HistoryResponseModel, error) {
 

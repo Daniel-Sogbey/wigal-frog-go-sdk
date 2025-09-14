@@ -5,7 +5,7 @@ import (
 	"net/http"
 )
 
-func (c *Client) SendMessage(ctx context.Context, to, message, msgId, smsType string) (*SMSResponse, error) {
+func (c *WigalClient) SendMessage(ctx context.Context, to, message, msgId, smsType string) (*SMSResponse, error) {
 	body := SMSRequest{
 		SenderId: c.config.SenderId,
 		Destinations: []Destination{

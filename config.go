@@ -1,4 +1,4 @@
-package main
+package wigal
 
 type Config struct {
 	ApiKey   string

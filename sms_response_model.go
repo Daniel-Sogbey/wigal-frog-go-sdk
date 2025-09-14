@@ -1,4 +1,4 @@
-package main
+package wigal
 
 type SMSResponse struct {
 	Status  *string     `json:"status,omitempty"`

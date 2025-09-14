@@ -1,4 +1,4 @@
-package main
+package wigal
 
 // TEXT | FLASH | CALL | RECORD | IVR | TEXT2SPEECH | OTP | SIMACTIVE | KYCVALIDATE
 type ServiceType int8

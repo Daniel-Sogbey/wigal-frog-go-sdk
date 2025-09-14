@@ -1,4 +1,4 @@
-package main
+package wigal
 
 type WigalClient struct {
 	config *Config

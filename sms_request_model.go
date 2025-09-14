@@ -1,4 +1,4 @@
-package main
+package wigal
 
 type SMSRequest struct {
 	SenderId     string        `json:"senderid,omitempty"`

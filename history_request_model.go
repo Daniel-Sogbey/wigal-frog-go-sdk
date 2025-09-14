@@ -1,4 +1,4 @@
-package main
+package wigal
 
 type HistoryRequestModel struct {
 	Service     string `json:"service"`

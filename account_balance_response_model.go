@@ -1,4 +1,4 @@
-package main
+package wigal
 
 type AccountBalanceResponseModel struct {
 	Status  string `json:"status"`

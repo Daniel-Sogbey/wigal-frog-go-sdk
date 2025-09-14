@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"context"
 	"encoding/json"
 	"io"
 	"net/http"
@@ -9,7 +10,8 @@ import (
 	"strings"
 )
 
-func requester[T any](urlString, method string, queryParams url.Values, headers http.Header, body any) (*T, error) {
+func requester[T any](ctx context.Context, urlString, method string, queryParams url.Values, headers http.Header,
+	body any) (*T, error) {
 	var t T
 
 	jsonBytes, err := json.Marshal(body)
@@ -30,7 +32,7 @@ func requester[T any](urlString, method string, queryParams url.Values, headers 
 
 	reqUrl.RawQuery = q.Encode()
 
-	req, err := http.NewRequest(method, reqUrl.String(), bytes.NewReader(jsonBytes))
+	req, err := http.NewRequestWithContext(ctx, method, reqUrl.String(), bytes.NewReader(jsonBytes))
 	if err != nil {
 		return &t, err
 	}

@@ -1,8 +1,12 @@
 package main
 
-import "net/http"
+import (
+	"context"
+	"net/http"
+)
 
-func (c *Client) SentMessagesHistory(service Service, serviceType ServiceType, dateFrom, dateTo, senderId string,
+func (c *Client) SentMessagesHistory(ctx context.Context, service Service, serviceType ServiceType,
+	dateFrom, dateTo, senderId string,
 	status Status, msgId string) (*HistoryResponseModel, error) {
 
 	body := &HistoryRequestModel{
@@ -17,7 +21,8 @@ func (c *Client) SentMessagesHistory(service Service, serviceType ServiceType, d
 
 	headers := http.Header{}
 	headers.Add("Content-Type", "application/json")
-	sentMessagesHistoryResponse, err := requester[HistoryResponseModel]("https://frogapi.wigal.com.gh/api/v3/sms/history",
+	sentMessagesHistoryResponse, err := requester[HistoryResponseModel](ctx,
+		"https://frogapi.wigal.com.gh/api/v3/sms/history",
 		http.MethodPost, nil, headers, body)
 
 	if err != nil {

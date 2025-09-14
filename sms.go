@@ -1,8 +1,11 @@
 package main
 
-import "net/http"
+import (
+	"context"
+	"net/http"
+)
 
-func (c *Client) SendMessage(to, message, msgId, smsType string) (*SMSResponse, error) {
+func (c *Client) SendMessage(ctx context.Context, to, message, msgId, smsType string) (*SMSResponse, error) {
 	body := SMSRequest{
 		SenderId: c.config.SenderId,
 		Destinations: []Destination{
@@ -20,8 +23,10 @@ func (c *Client) SendMessage(to, message, msgId, smsType string) (*SMSResponse, 
 	headers.Add("API-KEY", c.config.ApiKey)
 	headers.Add("USERNAME", c.config.Username)
 
-	smsResponse, err := requester[SMSResponse]("https://frogapi.wigal.com.gh/api/v3/sms/send", http.MethodPost, nil,
+	smsResponse, err := requester[SMSResponse](ctx, "https://frogapi.wigal.com.gh/api/v3/sms/send", http.MethodPost,
+		nil,
 		headers, body)
+
 	if err != nil {
 		return nil, err
 	}
